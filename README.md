@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/BinaryKits/ZPLUtility/master/doc/logo.png" width="200">
 
-# DD.BinaryKits.Zpl
+# 3breadt.BinaryKits.Zpl
 
 _Forked version of [BinaryKits.Zpl](https://github.com/BinaryKits/BinaryKits.Zpl) with updated dependencies._
 
@@ -31,10 +31,10 @@ The packages are available via:
 
 | Package Manager | .NET CLI |  |
 | ------------- | ------------- | ------------- |
-| ``` PM> install-package DD.BinaryKits.Zpl.Label ``` | ``` > dotnet add package DD.BinaryKits.Zpl.Label ``` | [![NuGet](https://img.shields.io/nuget/v/DD.BinaryKits.Zpl.Label.svg?label=NuGet)](https://www.nuget.org/packages/DD.BinaryKits.Zpl.Label) |
-| ``` PM> install-package DD.BinaryKits.Zpl.Labelary ``` | ``` > dotnet add package DD.BinaryKits.Zpl.Labelary ``` | [![NuGet](https://img.shields.io/nuget/v/DD.BinaryKits.Zpl.Labelary.svg?label=NuGet)](https://www.nuget.org/packages/DD.BinaryKits.Zpl.Labelary) |
-| ``` PM> install-package DD.BinaryKits.Zpl.Viewer ``` | ``` > dotnet add package DD.BinaryKits.Zpl.Viewer ``` | [![NuGet](https://img.shields.io/nuget/v/DD.BinaryKits.Zpl.Viewer.svg?label=NuGet)](https://www.nuget.org/packages/DD.BinaryKits.Zpl.Viewer) |
-| ``` PM> install-package DD.BinaryKits.Zpl.Protocol ``` | ``` > dotnet add package DD.BinaryKits.Zpl.Protocol ``` | [![NuGet](https://img.shields.io/nuget/v/DD.BinaryKits.Zpl.Protocol.svg?label=NuGet)](https://www.nuget.org/packages/DD.BinaryKits.Zpl.Protocol) |
+| ``` PM> install-package 3breadt.BinaryKits.Zpl.Label ``` | ``` > dotnet add package 3breadt.BinaryKits.Zpl.Label ``` | [![NuGet](https://img.shields.io/nuget/v/3breadt.BinaryKits.Zpl.Label.svg?label=NuGet)](https://www.nuget.org/packages/3breadt.BinaryKits.Zpl.Label) |
+| ``` PM> install-package 3breadt.BinaryKits.Zpl.Labelary ``` | ``` > dotnet add package 3breadt.BinaryKits.Zpl.Labelary ``` | [![NuGet](https://img.shields.io/nuget/v/3breadt.BinaryKits.Zpl.Labelary.svg?label=NuGet)](https://www.nuget.org/packages/3breadt.BinaryKits.Zpl.Labelary) |
+| ``` PM> install-package 3breadt.BinaryKits.Zpl.Viewer ``` | ``` > dotnet add package 3breadt.BinaryKits.Zpl.Viewer ``` | [![NuGet](https://img.shields.io/nuget/v/3breadt.BinaryKits.Zpl.Viewer.svg?label=NuGet)](https://www.nuget.org/packages/3breadt.BinaryKits.Zpl.Viewer) |
+| ``` PM> install-package 3breadt.BinaryKits.Zpl.Protocol ``` | ``` > dotnet add package 3breadt.BinaryKits.Zpl.Protocol ``` | [![NuGet](https://img.shields.io/nuget/v/3breadt.BinaryKits.Zpl.Protocol.svg?label=NuGet)](https://www.nuget.org/packages/3breadt.BinaryKits.Zpl.Protocol) |
 
 ## Supported Elements
 

@@ -13,7 +13,7 @@
     <PackageProjectUrl>https://github.com/3breadt/BinaryKits.Zpl</PackageProjectUrl>
     <RepositoryUrl>https://github.com/3breadt/BinaryKits.Zpl</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageId>DD.BinaryKits.Zpl.Label</PackageId>
+    <PackageId>3breadt.BinaryKits.Zpl.Label</PackageId>
     <PackageIcon>logo_128.png</PackageIcon>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>BinaryKits.Zpl.Label</AssemblyName>

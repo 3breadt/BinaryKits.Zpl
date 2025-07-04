@@ -20,7 +20,7 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	<NoWarn>CS1591</NoWarn>
-	<PackageId>DD.BinaryKits.Zpl.Labelary</PackageId>
+	<PackageId>3breadt.BinaryKits.Zpl.Labelary</PackageId>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 

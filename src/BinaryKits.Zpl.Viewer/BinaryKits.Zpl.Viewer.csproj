@@ -22,7 +22,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <LangVersion>latest</LangVersion>
 	<NoWarn>CS1591</NoWarn>
-	<PackageId>DD.BinaryKits.Zpl.Viewer</PackageId>
+	<PackageId>3breadt.BinaryKits.Zpl.Viewer</PackageId>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
