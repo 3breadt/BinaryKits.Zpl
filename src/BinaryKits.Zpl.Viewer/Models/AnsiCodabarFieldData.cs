@@ -1,6 +1,5 @@
-﻿using BinaryKits.Zpl.Label;
-
 namespace BinaryKits.Zpl.Viewer.Models;
+using BinaryKits.Zpl.Label;
 
 public class AnsiCodabarFieldData : FieldDataBase
 {

@@ -1,41 +1,40 @@
-﻿using BinaryKits.Zpl.Label.Elements;
+namespace BinaryKits.Zpl.Viewer.CommandAnalyzers;
 
-namespace BinaryKits.Zpl.Viewer.CommandAnalyzers
+using BinaryKits.Zpl.Label.Elements;
+
+public class FieldSeparatorZplCommandAnalyzer : ZplCommandAnalyzerBase
 {
-    public class FieldSeparatorZplCommandAnalyzer : ZplCommandAnalyzerBase
+    private ZplCommandAnalyzerBase _fieldDataAnalyzer;
+
+    public FieldSeparatorZplCommandAnalyzer(VirtualPrinter virtualPrinter, ZplCommandAnalyzerBase fieldDataAnalyzer)
+        : base("^FS", virtualPrinter)
     {
-        private ZplCommandAnalyzerBase _fieldDataAnalyzer;
+        _fieldDataAnalyzer = fieldDataAnalyzer;
+    }
 
-        public FieldSeparatorZplCommandAnalyzer(VirtualPrinter virtualPrinter, ZplCommandAnalyzerBase fieldDataAnalyzer)
-            : base("^FS", virtualPrinter)
+    ///<inheritdoc/>
+    public override ZplElementBase Analyze(string zplCommand)
+    {
+        // If next field number has been set and was not consumed by a field data
+        // it has to be stored as a command so that it is handled when merging formats
+        ZplElementBase element = null;
+        int? fieldNumber = this.VirtualPrinter.NextFieldNumber;
+        if (fieldNumber.HasValue)
         {
-            _fieldDataAnalyzer = fieldDataAnalyzer;
+            this.VirtualPrinter.ClearNextFieldNumber();
+            ZplElementBase dataElement = _fieldDataAnalyzer.Analyze(zplCommand);
+            element = new ZplFieldNumber(fieldNumber.Value, dataElement);
         }
 
-        ///<inheritdoc/>
-        public override ZplElementBase Analyze(string zplCommand)
-        {
-            // If next field number has been set and was not consumed by a field data
-            // it has to be stored as a command so that it is handled when merging formats
-            ZplElementBase element = null;
-            int? fieldNumber = this.VirtualPrinter.NextFieldNumber;
-            if (fieldNumber.HasValue)
-            {
-                this.VirtualPrinter.ClearNextFieldNumber();
-                ZplElementBase dataElement = _fieldDataAnalyzer.Analyze(zplCommand);
-                element = new ZplFieldNumber(fieldNumber.Value, dataElement);
-            }
+        this.VirtualPrinter.ClearNextElementPosition();
+        this.VirtualPrinter.ClearNextElementFieldBlock();
+        this.VirtualPrinter.ClearNextElementFieldData();
+        this.VirtualPrinter.ClearNextElementFieldReverse();
+        this.VirtualPrinter.ClearNextElementFieldUseHexadecimalIndicator();
+        this.VirtualPrinter.ClearNextElementFieldJustification();
+        this.VirtualPrinter.ClearNextFont();
+        this.VirtualPrinter.ClearComments();
 
-            this.VirtualPrinter.ClearNextElementPosition();
-            this.VirtualPrinter.ClearNextElementFieldBlock();
-            this.VirtualPrinter.ClearNextElementFieldData();
-            this.VirtualPrinter.ClearNextElementFieldReverse();
-            this.VirtualPrinter.ClearNextElementFieldUseHexadecimalIndicator();
-            this.VirtualPrinter.ClearNextElementFieldJustification();
-            this.VirtualPrinter.ClearNextFont();
-            this.VirtualPrinter.ClearComments();
-
-            return element;
-        }
+        return element;
     }
 }

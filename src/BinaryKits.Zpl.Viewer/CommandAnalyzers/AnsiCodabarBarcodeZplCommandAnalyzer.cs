@@ -1,7 +1,6 @@
-﻿using BinaryKits.Zpl.Label.Elements;
-using BinaryKits.Zpl.Viewer.Models;
-
 namespace BinaryKits.Zpl.Viewer.CommandAnalyzers;
+using BinaryKits.Zpl.Label.Elements;
+using BinaryKits.Zpl.Viewer.Models;
 
 public class AnsiCodabarBarcodeZplCommandAnalyzer : ZplCommandAnalyzerBase
 {

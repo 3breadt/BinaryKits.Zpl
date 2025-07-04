@@ -1,8 +1,7 @@
-﻿namespace BinaryKits.Zpl.Viewer
+namespace BinaryKits.Zpl.Viewer;
+
+public interface IPrinterStorage
 {
-    public interface IPrinterStorage
-    {
-        void AddFile(char storageDevice, string fileName, byte[] data);
-        byte[] GetFile(char storageDevice, string fileName);
-    }
+    void AddFile(char storageDevice, string fileName, byte[] data);
+    byte[] GetFile(char storageDevice, string fileName);
 }

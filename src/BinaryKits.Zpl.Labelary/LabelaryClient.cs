@@ -1,12 +1,12 @@
-﻿using Microsoft.Extensions.Logging;
-using System;
-using System.Globalization;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace BinaryKits.Zpl.Labelary
 {
+    using Microsoft.Extensions.Logging;
+    using System;
+    using System.Globalization;
+    using System.Net.Http;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public class LabelaryClient : IDisposable
     {
         private readonly ILogger<LabelaryClient> _logger;

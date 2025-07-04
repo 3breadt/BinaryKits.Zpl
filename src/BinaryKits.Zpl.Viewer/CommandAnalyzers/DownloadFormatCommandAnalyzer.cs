@@ -1,27 +1,26 @@
-﻿using BinaryKits.Zpl.Label.Elements;
+namespace BinaryKits.Zpl.Viewer.CommandAnalyzers;
+
+using BinaryKits.Zpl.Label.Elements;
 using System.Text.RegularExpressions;
 
-namespace BinaryKits.Zpl.Viewer.CommandAnalyzers
+public class DownloadFormatCommandAnalyzer : ZplCommandAnalyzerBase
 {
-    public class DownloadFormatCommandAnalyzer : ZplCommandAnalyzerBase
+    private static readonly Regex commandRegex = new Regex(@"^\^DF(\w:)?(.*?)?(\..+?)?$", RegexOptions.Compiled);
+
+    public DownloadFormatCommandAnalyzer(VirtualPrinter virtualPrinter) : base("^DF", virtualPrinter) { }
+
+    ///<inheritdoc/>
+    public override ZplElementBase Analyze(string zplCommand)
     {
-        private static readonly Regex commandRegex = new Regex(@"^\^DF(\w:)?(.*?)?(\..+?)?$", RegexOptions.Compiled);
-
-        public DownloadFormatCommandAnalyzer(VirtualPrinter virtualPrinter) : base("^DF", virtualPrinter) { }
-
-        ///<inheritdoc/>
-        public override ZplElementBase Analyze(string zplCommand)
+        var commandMatch = commandRegex.Match(zplCommand);
+        if (commandMatch.Success)
         {
-            var commandMatch = commandRegex.Match(zplCommand);
-            if (commandMatch.Success)
-            {
-                char storageDevice = commandMatch.Groups[1].Success ? commandMatch.Groups[1].Value[0] : 'R';
-                string formatName = commandMatch.Groups[2].Value;
+            char storageDevice = commandMatch.Groups[1].Success ? commandMatch.Groups[1].Value[0] : 'R';
+            string formatName = commandMatch.Groups[2].Value;
 
-                this.VirtualPrinter.SetNextDownloadFormatName(formatName);
-            }
-
-            return null;
+            this.VirtualPrinter.SetNextDownloadFormatName(formatName);
         }
+
+        return null;
     }
 }

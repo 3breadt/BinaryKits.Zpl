@@ -1,36 +1,35 @@
-﻿using BinaryKits.Zpl.Label.Elements;
+namespace BinaryKits.Zpl.Viewer.CommandAnalyzers;
 
-namespace BinaryKits.Zpl.Viewer.CommandAnalyzers
+using BinaryKits.Zpl.Label.Elements;
+
+public class ChangeAlphanumericDefaultFontZplCommandAnalyzer : ZplCommandAnalyzerBase
 {
-    public class ChangeAlphanumericDefaultFontZplCommandAnalyzer : ZplCommandAnalyzerBase
+    public ChangeAlphanumericDefaultFontZplCommandAnalyzer(VirtualPrinter virtualPrinter) : base("^CF", virtualPrinter) { }
+
+    ///<inheritdoc/>
+    public override ZplElementBase Analyze(string zplCommand)
     {
-        public ChangeAlphanumericDefaultFontZplCommandAnalyzer(VirtualPrinter virtualPrinter) : base("^CF", virtualPrinter) { }
+        var zplDataParts = this.SplitCommand(zplCommand);
 
-        ///<inheritdoc/>
-        public override ZplElementBase Analyze(string zplCommand)
+        this.VirtualPrinter.SetFontName(zplDataParts[0]);
+
+        int tmpint;
+        int fontHeight = 9;
+        int fontWidth = 0;
+
+        if (zplDataParts.Length > 1 && int.TryParse(zplDataParts[1], out tmpint))
         {
-            var zplDataParts = this.SplitCommand(zplCommand);
-
-            this.VirtualPrinter.SetFontName(zplDataParts[0]);
-
-            int tmpint;
-            int fontHeight = 9;
-            int fontWidth = 0;
-
-            if (zplDataParts.Length > 1 && int.TryParse(zplDataParts[1], out tmpint))
-            {
-                fontHeight = tmpint;
-            }
-
-            if (zplDataParts.Length > 2 && int.TryParse(zplDataParts[2], out tmpint))
-            {
-                fontWidth = tmpint;
-            }
-
-            this.VirtualPrinter.SetFontHeight(fontHeight);
-            this.VirtualPrinter.SetFontWidth(fontWidth);
-
-            return null;
+            fontHeight = tmpint;
         }
+
+        if (zplDataParts.Length > 2 && int.TryParse(zplDataParts[2], out tmpint))
+        {
+            fontWidth = tmpint;
+        }
+
+        this.VirtualPrinter.SetFontHeight(fontHeight);
+        this.VirtualPrinter.SetFontWidth(fontWidth);
+
+        return null;
     }
 }

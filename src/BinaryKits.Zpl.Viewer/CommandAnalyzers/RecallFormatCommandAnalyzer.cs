@@ -1,17 +1,16 @@
-﻿using BinaryKits.Zpl.Label.Elements;
+namespace BinaryKits.Zpl.Viewer.CommandAnalyzers;
 
-namespace BinaryKits.Zpl.Viewer.CommandAnalyzers
+using BinaryKits.Zpl.Label.Elements;
+
+public class RecallFormatCommandAnalyzer : ZplCommandAnalyzerBase
 {
-    public class RecallFormatCommandAnalyzer : ZplCommandAnalyzerBase
+    public RecallFormatCommandAnalyzer(VirtualPrinter virtualPrinter) : base("^XF", virtualPrinter) { }
+
+    ///<inheritdoc/>
+    public override ZplElementBase Analyze(string zplCommand)
     {
-        public RecallFormatCommandAnalyzer(VirtualPrinter virtualPrinter) : base("^XF", virtualPrinter) { }
+        string formatName = zplCommand.Substring(this.PrinterCommandPrefix.Length);
 
-        ///<inheritdoc/>
-        public override ZplElementBase Analyze(string zplCommand)
-        {
-            string formatName = zplCommand.Substring(this.PrinterCommandPrefix.Length);
-
-            return new ZplRecallFormat(formatName);
-        }
+        return new ZplRecallFormat(formatName);
     }
 }

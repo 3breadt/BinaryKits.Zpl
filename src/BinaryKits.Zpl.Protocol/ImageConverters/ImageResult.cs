@@ -1,21 +1,20 @@
-﻿namespace BinaryKits.Zpl.Protocol.ImageConverters
+namespace BinaryKits.Zpl.Protocol.ImageConverters;
+
+/// <summary>
+/// Zebra Image Result
+/// </summary>
+public class ImageResult
 {
     /// <summary>
-    /// Zebra Image Result
+    /// Zpl Image Data
     /// </summary>
-    public class ImageResult
-    {
-        /// <summary>
-        /// Zpl Image Data
-        /// </summary>
-        public string ZplData { get; set; }
-        /// <summary>
-        /// Binary byte count
-        /// </summary>
-        public int BinaryByteCount { get; set; }
-        /// <summary>
-        /// Bytes per row
-        /// </summary>
-        public int BytesPerRow { get; set; }
-    }
+    public string ZplData { get; set; }
+    /// <summary>
+    /// Binary byte count
+    /// </summary>
+    public int BinaryByteCount { get; set; }
+    /// <summary>
+    /// Bytes per row
+    /// </summary>
+    public int BytesPerRow { get; set; }
 }

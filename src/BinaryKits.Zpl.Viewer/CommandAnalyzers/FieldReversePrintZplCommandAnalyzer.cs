@@ -1,17 +1,16 @@
-﻿using BinaryKits.Zpl.Label.Elements;
+namespace BinaryKits.Zpl.Viewer.CommandAnalyzers;
 
-namespace BinaryKits.Zpl.Viewer.CommandAnalyzers
+using BinaryKits.Zpl.Label.Elements;
+
+public class FieldReversePrintZplCommandAnalyzer : ZplCommandAnalyzerBase
 {
-    public class FieldReversePrintZplCommandAnalyzer : ZplCommandAnalyzerBase
+    public FieldReversePrintZplCommandAnalyzer(VirtualPrinter virtualPrinter) : base("^FR", virtualPrinter) { }
+
+    ///<inheritdoc/>
+    public override ZplElementBase Analyze(string zplCommand)
     {
-        public FieldReversePrintZplCommandAnalyzer(VirtualPrinter virtualPrinter) : base("^FR", virtualPrinter) { }
+        this.VirtualPrinter.SetNextElementFieldReverse();
 
-        ///<inheritdoc/>
-        public override ZplElementBase Analyze(string zplCommand)
-        {
-            this.VirtualPrinter.SetNextElementFieldReverse();
-
-            return null;
-        }
+        return null;
     }
 }

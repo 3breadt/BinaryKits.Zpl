@@ -1,39 +1,38 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+namespace BinaryKits.Zpl.Protocol.Commands.UnitTest;
 
-namespace BinaryKits.Zpl.Protocol.Commands.UnitTest
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+[TestClass]
+public class FieldReversePrintCommandTest
 {
-    [TestClass]
-    public class FieldReversePrintCommandTest
+    [TestMethod]
+    public void ToZpl_Default_Successful()
     {
-        [TestMethod]
-        public void ToZpl_Default_Successful()
-        {
-            var command = new FieldReversePrintCommand();
-            var zplCommand = command.ToZpl();
-            Assert.AreEqual("^FR", zplCommand);
-        }
+        var command = new FieldReversePrintCommand();
+        var zplCommand = command.ToZpl();
+        Assert.AreEqual("^FR", zplCommand);
+    }
 
-        [TestMethod]
-        public void IsCommandParsable_ValidCommand_True()
-        {
-            var command = new FieldReversePrintCommand();
-            var isParsable = command.IsCommandParsable("^FR");
-            Assert.IsTrue(isParsable);
-        }
+    [TestMethod]
+    public void IsCommandParsable_ValidCommand_True()
+    {
+        var command = new FieldReversePrintCommand();
+        var isParsable = command.IsCommandParsable("^FR");
+        Assert.IsTrue(isParsable);
+    }
 
-        [TestMethod]
-        public void IsCommandParsable_InvalidCommand_False()
-        {
-            var command = new FieldReversePrintCommand();
-            var isParsable = command.IsCommandParsable("^FT10,10");
-            Assert.IsFalse(isParsable);
-        }
+    [TestMethod]
+    public void IsCommandParsable_InvalidCommand_False()
+    {
+        var command = new FieldReversePrintCommand();
+        var isParsable = command.IsCommandParsable("^FT10,10");
+        Assert.IsFalse(isParsable);
+    }
 
-        [TestMethod]
-        public void ParseCommand_ValidCommand1_Successful()
-        {
-            var command = new FieldReversePrintCommand();
-            command.ParseCommand("^FR");
-        }
+    [TestMethod]
+    public void ParseCommand_ValidCommand1_Successful()
+    {
+        var command = new FieldReversePrintCommand();
+        command.ParseCommand("^FR");
     }
 }

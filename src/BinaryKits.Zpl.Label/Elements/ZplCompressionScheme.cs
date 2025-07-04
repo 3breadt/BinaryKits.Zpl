@@ -1,27 +1,26 @@
-﻿using System;
+namespace BinaryKits.Zpl.Label.Elements;
 
-namespace BinaryKits.Zpl.Label.Elements
+using System;
+
+/// <summary>
+/// Zebra Download Compression Scheme
+/// </summary>
+public enum ZplCompressionScheme
 {
     /// <summary>
-    /// Zebra Download Compression Scheme
+    /// No Compression
     /// </summary>
-    public enum ZplCompressionScheme
-    {
-        /// <summary>
-        /// No Compression
-        /// </summary>
-        None,
-        /// <summary>
-        /// Alternative Compression Scheme
-        /// </summary>
-        ACS,
-        /// <summary>
-        /// Z64 encoding compressed using LZ77 algorithm and encoded in Base64.
-        /// </summary>
-        Z64,
-        /// <summary>
-        /// Base64 encoding
-        /// </summary>
-        B64
-    }
+    None,
+    /// <summary>
+    /// Alternative Compression Scheme
+    /// </summary>
+    ACS,
+    /// <summary>
+    /// Z64 encoding compressed using LZ77 algorithm and encoded in Base64.
+    /// </summary>
+    Z64,
+    /// <summary>
+    /// Base64 encoding
+    /// </summary>
+    B64
 }

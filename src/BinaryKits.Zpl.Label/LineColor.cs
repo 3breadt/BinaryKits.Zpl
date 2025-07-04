@@ -1,17 +1,16 @@
-﻿namespace BinaryKits.Zpl.Label
+namespace BinaryKits.Zpl.Label;
+
+/// <summary>
+/// Line Color
+/// </summary>
+public enum LineColor
 {
     /// <summary>
-    /// Line Color
+    /// Black
     /// </summary>
-    public enum LineColor
-    {
-        /// <summary>
-        /// Black
-        /// </summary>
-        Black,
-        /// <summary>
-        /// White
-        /// </summary>
-        White
-    }
+    Black,
+    /// <summary>
+    /// White
+    /// </summary>
+    White
 }

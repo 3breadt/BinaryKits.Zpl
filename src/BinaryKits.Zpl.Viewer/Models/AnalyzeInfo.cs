@@ -1,11 +1,10 @@
-﻿namespace BinaryKits.Zpl.Viewer.Models
+namespace BinaryKits.Zpl.Viewer.Models;
+
+public class AnalyzeInfo
 {
-    public class AnalyzeInfo
-    {
-        public string[] Errors { get; set; }
+    public string[] Errors { get; set; }
 
-        public string[] UnknownCommands { get; set; }
+    public string[] UnknownCommands { get; set; }
 
-        public LabelInfo[] LabelInfos { get; set; }
-    }
+    public LabelInfo[] LabelInfos { get; set; }
 }

@@ -1,7 +1,7 @@
-﻿using System;
-
 namespace BinaryKits.Zpl.Labelary
 {
+    using System;
+
     public class LabelSize
     {
         private readonly double _width;

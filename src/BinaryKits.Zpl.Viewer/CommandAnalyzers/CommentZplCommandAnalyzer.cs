@@ -1,18 +1,17 @@
-﻿using BinaryKits.Zpl.Label.Elements;
+namespace BinaryKits.Zpl.Viewer.CommandAnalyzers;
 
-namespace BinaryKits.Zpl.Viewer.CommandAnalyzers
+using BinaryKits.Zpl.Label.Elements;
+
+public class CommentZplCommandAnalyzer : ZplCommandAnalyzerBase
 {
-    public class CommentZplCommandAnalyzer : ZplCommandAnalyzerBase
+    public CommentZplCommandAnalyzer(VirtualPrinter virtualPrinter) : base("^FX", virtualPrinter) { }
+
+    ///<inheritdoc/>
+    public override ZplElementBase Analyze(string zplCommand)
     {
-        public CommentZplCommandAnalyzer(VirtualPrinter virtualPrinter) : base("^FX", virtualPrinter) { }
+        string comment = zplCommand.Substring(this.PrinterCommandPrefix.Length);
+        this.VirtualPrinter.AddComment(comment);
 
-        ///<inheritdoc/>
-        public override ZplElementBase Analyze(string zplCommand)
-        {
-            string comment = zplCommand.Substring(this.PrinterCommandPrefix.Length);
-            this.VirtualPrinter.AddComment(comment);
-
-            return null;
-        }
+        return null;
     }
 }

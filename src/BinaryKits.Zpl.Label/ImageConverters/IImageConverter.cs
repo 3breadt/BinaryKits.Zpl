@@ -1,7 +1,6 @@
-﻿namespace BinaryKits.Zpl.Label.ImageConverters
+namespace BinaryKits.Zpl.Label.ImageConverters;
+
+public interface IImageConverter
 {
-    public interface IImageConverter
-    {
-        ImageResult ConvertImage(byte[] imageData);
-    }
+    ImageResult ConvertImage(byte[] imageData);
 }

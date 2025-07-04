@@ -1,33 +1,32 @@
-﻿using BinaryKits.Zpl.Label.Elements;
+namespace BinaryKits.Zpl.Viewer.CommandAnalyzers;
 
-namespace BinaryKits.Zpl.Viewer.CommandAnalyzers
+using BinaryKits.Zpl.Label.Elements;
+
+public class LabelHomeZplCommandAnalyzer : ZplCommandAnalyzerBase
 {
-    public class LabelHomeZplCommandAnalyzer : ZplCommandAnalyzerBase
+    public LabelHomeZplCommandAnalyzer(VirtualPrinter virtualPrinter) : base("^LH", virtualPrinter) { }
+
+    ///<inheritdoc/>
+    public override ZplElementBase Analyze(string zplCommand)
     {
-        public LabelHomeZplCommandAnalyzer(VirtualPrinter virtualPrinter) : base("^LH", virtualPrinter) { }
+        var zplDataParts = this.SplitCommand(zplCommand);
 
-        ///<inheritdoc/>
-        public override ZplElementBase Analyze(string zplCommand)
+        int tmpint;
+        int x = 0;
+        int y = 0;
+
+        if (zplDataParts.Length > 0 && int.TryParse(zplDataParts[0], out tmpint))
         {
-            var zplDataParts = this.SplitCommand(zplCommand);
-
-            int tmpint;
-            int x = 0;
-            int y = 0;
-
-            if (zplDataParts.Length > 0 && int.TryParse(zplDataParts[0], out tmpint))
-            {
-                x = tmpint;
-            }
-
-            if (zplDataParts.Length > 1 && int.TryParse(zplDataParts[1], out tmpint))
-            {
-                y = tmpint;
-            }
-
-            this.VirtualPrinter.SetLabelHome(x, y);
-
-            return null;
+            x = tmpint;
         }
+
+        if (zplDataParts.Length > 1 && int.TryParse(zplDataParts[1], out tmpint))
+        {
+            y = tmpint;
+        }
+
+        this.VirtualPrinter.SetLabelHome(x, y);
+
+        return null;
     }
 }

@@ -1,10 +1,9 @@
-﻿using BinaryKits.Zpl.Label;
+namespace BinaryKits.Zpl.Viewer.Models;
 
-namespace BinaryKits.Zpl.Viewer.Models
+using BinaryKits.Zpl.Label;
+
+public class DataMatrixFieldData : FieldDataBase
 {
-    public class DataMatrixFieldData : FieldDataBase
-    {
-        public FieldOrientation FieldOrientation { get; set; }
-        public int Height { get; set; }
-    }
+    public FieldOrientation FieldOrientation { get; set; }
+    public int Height { get; set; }
 }

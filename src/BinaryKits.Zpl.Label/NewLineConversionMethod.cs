@@ -1,21 +1,20 @@
-﻿namespace BinaryKits.Zpl.Label
+namespace BinaryKits.Zpl.Label;
+
+/// <summary>
+/// NewLine Conversion Method
+/// </summary>
+public enum NewLineConversionMethod
 {
     /// <summary>
-    /// NewLine Conversion Method
+    /// To Space
     /// </summary>
-    public enum NewLineConversionMethod
-    {
-        /// <summary>
-        /// To Space
-        /// </summary>
-        ToSpace,
-        /// <summary>
-        /// To Empty
-        /// </summary>
-        ToEmpty,
-        /// <summary>
-        /// To Zpl NewLine
-        /// </summary>
-        ToZplNewLine,
-    }
+    ToSpace,
+    /// <summary>
+    /// To Empty
+    /// </summary>
+    ToEmpty,
+    /// <summary>
+    /// To Zpl NewLine
+    /// </summary>
+    ToZplNewLine,
 }
