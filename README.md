@@ -1,20 +1,29 @@
 <img src="https://raw.githubusercontent.com/BinaryKits/ZPLUtility/master/doc/logo.png" width="200">
 
-# BinaryKits.Zpl
+# DD.BinaryKits.Zpl
+
+_Forked version of [BinaryKits.Zpl](https://github.com/BinaryKits/BinaryKits.Zpl) with updated dependencies._
 
 This project contains several modules for working with Zebra Programming Language. ZPL is a very common printer language that is supported by various manufacturers.
 The project helps you to describe a label and generates a preview from the ZPL data. We can convert different image formats to the Zebra image format. The image data is compressed to cause as little traffic as possible. More information about Zebra printer languages can be found in the [ZPL Documentation](https://www.zebra.com/content/dam/zebra/manuals/printers/common/programming/zpl-zbi2-pm-en.pdf).
 
 ## What modules does the project offer
 
-- **BinaryKits.Zpl.Label**<br>
-This module provides the basic building blocks of the ZPL language and the logic for converting the images into the correct format.
-- **BinaryKits.Zpl.Labelary**<br>
-This module is a client for the Labelary project with which a preview can be generated from ZPL data.
-- **BinaryKits.Zpl.Protocol**<br>
-This module contains the raw commands of the Zebra protocol.
-- **BinaryKits.Zpl.Viewer**<br>
-This module is our own implementation of a viewer. It converts the ZPL data into an image like Labelary but does it locally. [Try our viewer](https://binarykits-zpl-viewer.azurewebsites.net). The viewer is also available as a [docker container](https://hub.docker.com/r/yipingruan/binarykits-zpl)
+- **BinaryKits.Zpl.Label**
+
+  This module provides the basic building blocks of the ZPL language and the logic for converting the images into the correct format.
+
+- **BinaryKits.Zpl.Labelary**
+
+  This module is a client for the Labelary project with which a preview can be generated from ZPL data.
+
+- **BinaryKits.Zpl.Protocol**
+
+  This module contains the raw commands of the Zebra protocol.
+
+- **BinaryKits.Zpl.Viewer**
+
+  This module is our own implementation of a viewer. It converts the ZPL data into an image like Labelary but does it locally. [Try our viewer](https://binarykits-zpl-viewer.azurewebsites.net). The viewer is also available as a [docker container](https://hub.docker.com/r/yipingruan/binarykits-zpl)
 
 ## How can I use it?
 
@@ -22,10 +31,10 @@ The packages are available via:
 
 | Package Manager | .NET CLI |  |
 | ------------- | ------------- | ------------- |
-| ``` PM> install-package BinaryKits.Zpl.Label ``` | ``` > dotnet add package BinaryKits.Zpl.Label ``` | [![NuGet](https://img.shields.io/nuget/v/BinaryKits.Zpl.Label.svg?label=NuGet)](https://www.nuget.org/packages/BinaryKits.Zpl.Label) |
-| ``` PM> install-package BinaryKits.Zpl.Labelary ``` | ``` > dotnet add package BinaryKits.Zpl.Labelary ``` | [![NuGet](https://img.shields.io/nuget/v/BinaryKits.Zpl.Labelary.svg?label=NuGet)](https://www.nuget.org/packages/BinaryKits.Zpl.Labelary) |
-| ``` PM> install-package BinaryKits.Zpl.Viewer ``` | ``` > dotnet add package BinaryKits.Zpl.Viewer ``` | [![NuGet](https://img.shields.io/nuget/v/BinaryKits.Zpl.Viewer.svg?label=NuGet)](https://www.nuget.org/packages/BinaryKits.Zpl.Viewer) |
-| ``` PM> install-package BinaryKits.Zpl.Protocol ``` | ``` > dotnet add package BinaryKits.Zpl.Protocol ``` | [![NuGet](https://img.shields.io/nuget/v/BinaryKits.Zpl.Protocol.svg?label=NuGet)](https://www.nuget.org/packages/BinaryKits.Zpl.Protocol) |
+| ``` PM> install-package DD.BinaryKits.Zpl.Label ``` | ``` > dotnet add package DD.BinaryKits.Zpl.Label ``` | [![NuGet](https://img.shields.io/nuget/v/DD.BinaryKits.Zpl.Label.svg?label=NuGet)](https://www.nuget.org/packages/DD.BinaryKits.Zpl.Label) |
+| ``` PM> install-package DD.BinaryKits.Zpl.Labelary ``` | ``` > dotnet add package DD.BinaryKits.Zpl.Labelary ``` | [![NuGet](https://img.shields.io/nuget/v/DD.BinaryKits.Zpl.Labelary.svg?label=NuGet)](https://www.nuget.org/packages/DD.BinaryKits.Zpl.Labelary) |
+| ``` PM> install-package DD.BinaryKits.Zpl.Viewer ``` | ``` > dotnet add package DD.BinaryKits.Zpl.Viewer ``` | [![NuGet](https://img.shields.io/nuget/v/DD.BinaryKits.Zpl.Viewer.svg?label=NuGet)](https://www.nuget.org/packages/DD.BinaryKits.Zpl.Viewer) |
+| ``` PM> install-package DD.BinaryKits.Zpl.Protocol ``` | ``` > dotnet add package DD.BinaryKits.Zpl.Protocol ``` | [![NuGet](https://img.shields.io/nuget/v/DD.BinaryKits.Zpl.Protocol.svg?label=NuGet)](https://www.nuget.org/packages/DD.BinaryKits.Zpl.Protocol) |
 
 ## Supported Elements
 
@@ -142,6 +151,7 @@ var output = new ZplEngine(elements).ToZplString(options);
 
 Console.WriteLine(output);
 ```
+
 ![Simple layout](doc/preview-simple-layout.png)
 
 ### Auto scale based on DPI
@@ -155,6 +165,7 @@ var output = new ZplEngine(elements).ToZplString(options);
 
 Console.WriteLine(output);
 ```
+
 ### Render with comment for easy debugging
 
 ```cs
@@ -201,6 +212,7 @@ Console.WriteLine(output);
 You have 2 possibilities to transfer the graphic to the printer:
 
 #### 1. ZplDownloadObjects (Use ~DY and ^IM)
+
 With this option, the image is sent to the printer in the original graphic format and the printer converts the graphic to a black and white graphic
 
 ```cs
@@ -215,6 +227,7 @@ Console.WriteLine(output);
 ```
 
 #### 2. ZplDownloadGraphics (Use ~DG and ^XG)
+
 With this option, the image is converted from the library into a black and white graphic and the printer already receives the finished print data
 
 ```cs
@@ -227,6 +240,7 @@ var output = renderEngine.ToZplString(new ZplRenderOptions { AddEmptyLineBeforeE
 
 Console.WriteLine(output);
 ```
+
 Sample code: https://dotnetfiddle.net/ug84VY
 
 ## Example to use the Viewer
