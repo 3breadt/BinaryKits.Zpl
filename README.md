@@ -1,8 +1,8 @@
-<img src="https://raw.githubusercontent.com/BinaryKits/ZPLUtility/master/doc/logo.png" width="200">
-
 # 3breadt.BinaryKits.Zpl
 
 _Forked version of [BinaryKits.Zpl](https://github.com/BinaryKits/BinaryKits.Zpl) with updated dependencies._
+
+![BinaryKits.Zpl logo](https://raw.githubusercontent.com/3breadt/BinaryKits.Zpl/master/doc/logo.png)
 
 This project contains several modules for working with Zebra Programming Language. ZPL is a very common printer language that is supported by various manufacturers.
 The project helps you to describe a label and generates a preview from the ZPL data. We can convert different image formats to the Zebra image format. The image data is compressed to cause as little traffic as possible. More information about Zebra printer languages can be found in the [ZPL Documentation](https://www.zebra.com/content/dam/zebra/manuals/printers/common/programming/zpl-zbi2-pm-en.pdf).
@@ -101,7 +101,7 @@ var output = new ZplBarcode128("123ABC", 10, 50).ToZplString();
 Console.WriteLine(output);
 ```
 
-![Barcode 128](doc/preview-barcode128.png)
+![Barcode 128](https://raw.githubusercontent.com/3breadt/BinaryKits.Zpl/master/doc/preview-barcode128.png)
 
 ### Whole label
 
@@ -126,9 +126,7 @@ var output = renderEngine.ToZplString(new ZplRenderOptions { AddEmptyLineBeforeE
 Console.WriteLine(output);
 ```
 
-Sample code: https://dotnetfiddle.net/cnJ1XG
-
-![Whole label](doc/preview-whole.label.png)
+![Whole label](https://raw.githubusercontent.com/3breadt/BinaryKits.Zpl/master/doc/preview-whole.label.png)
 
 ### Simple layout
 
@@ -152,7 +150,7 @@ var output = new ZplEngine(elements).ToZplString(options);
 Console.WriteLine(output);
 ```
 
-![Simple layout](doc/preview-simple-layout.png)
+![Simple layout](https://raw.githubusercontent.com/3breadt/BinaryKits.Zpl/master/doc/preview-simple-layout.png)
 
 ### Auto scale based on DPI
 
@@ -240,8 +238,6 @@ var output = renderEngine.ToZplString(new ZplRenderOptions { AddEmptyLineBeforeE
 
 Console.WriteLine(output);
 ```
-
-Sample code: https://dotnetfiddle.net/ug84VY
 
 ## Example to use the Viewer
 
