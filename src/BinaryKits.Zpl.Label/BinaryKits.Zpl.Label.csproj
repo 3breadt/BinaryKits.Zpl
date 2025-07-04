@@ -1,17 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net472;netstandard2.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
     <Description>This package allows you to simply and reliably prepare labels complying with the Zebra programming language, using predefined class/typing. It also supports you with image conversion.</Description>
     <Company>Binary Kits Pte. Ltd.</Company>
-    <Version>3.2.1</Version>
-    <Authors>Binary Kits Pte. Ltd.</Authors>
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <Version>3.3.0-preview</Version>
+    <Authors>Binary Kits Pte. Ltd., Daniel Dreibrodt</Authors>
+    <PackageReleaseNotes>v3.3.0
+- Removed .NET 4.7 support
+- Upgraded SixLabors.ImageSharp to v3.1.10</PackageReleaseNotes>
     <PackageTags>Zebra ZPL ZPL2 Printer Label</PackageTags>
-    <PackageProjectUrl>https://github.com/BinaryKits/BinaryKits.Zpl</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/BinaryKits/BinaryKits.Zpl</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/3breadt/BinaryKits.Zpl</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/3breadt/BinaryKits.Zpl</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageId>BinaryKits.Zpl.Label</PackageId>
+    <PackageId>DD.BinaryKits.Zpl.Label</PackageId>
     <PackageIcon>logo_128.png</PackageIcon>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>BinaryKits.Zpl.Label</AssemblyName>
@@ -19,11 +21,14 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	<NoWarn>CS1591</NoWarn>
+	<Title>ZPL language building blocks and bitonal image conversion</Title>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="SixLabors.ImageSharp">
-      <Version>2.1.8</Version>
+      <Version>3.1.10</Version>
     </PackageReference>
   </ItemGroup>
 
@@ -36,6 +41,10 @@
       <Pack>true</Pack>
       <Visible>false</Visible>
       <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 
